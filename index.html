@@ -3,169 +3,241 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kyle Angela Transport — Transport & chauffeur privé en France</title>
-<meta name="description" content="Transferts aéroport et gare, chauffeur privé et excursions en France. Service en français et en anglais.">
+<title>Kyle Angela Transport — Limousine & chauffeur privé</title>
+<meta name="description" content="Service de limousine de luxe avec chauffeur en France : transferts VIP, mariages, événements et affaires. Luxury limousine service in France.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #ffffff;
-    --bg-alt: #f3f6fa;
-    --text: #14202e;
-    --muted: #5b6878;
-    --brand: #0b5394;
-    --brand-dark: #083d6e;
-    --accent: #f2a900;
-    --radius: 14px;
+    --black: #0b0b0c;
+    --panel: #141416;
+    --panel-2: #1b1b1e;
+    --line: rgba(201, 169, 97, .28);
+    --gold: #c9a961;
+    --gold-light: #e6cf98;
+    --text: #ece8e1;
+    --muted: #a39e94;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Montserrat", system-ui, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: "Inter", system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
-  a { color: inherit; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  body { font-family: var(--sans); font-weight: 300; color: var(--text); background: var(--black); line-height: 1.75; letter-spacing: .01em; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
 
-  header { position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); border-bottom: 1px solid #e3e8ef; z-index: 10; }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
-  .logo { font-weight: 800; font-size: 1.25rem; color: var(--brand); text-decoration: none; }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 20px; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: .95rem; }
-  .nav-links a:hover { color: var(--brand); }
-  .lang { display: flex; border: 1px solid #cfd8e3; border-radius: 999px; overflow: hidden; }
-  .lang button { border: 0; background: none; padding: 6px 12px; font: inherit; font-weight: 600; font-size: .85rem; cursor: pointer; color: var(--muted); }
-  .lang button.active { background: var(--brand); color: #fff; }
+  .eyebrow { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.1; }
+  h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); margin: 14px 0 18px; }
+  .rule { width: 64px; height: 1px; background: var(--gold); margin: 0 0 28px; }
+  .center { text-align: center; }
+  .center .rule { margin: 0 auto 28px; }
+  .lead { color: var(--muted); max-width: 620px; }
+  .center .lead { margin: 0 auto; }
 
-  .hero { background: linear-gradient(135deg, var(--brand-dark), var(--brand) 60%, #1c7ac9); color: #fff; padding: 88px 0 96px; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; max-width: 720px; }
-  .hero p { font-size: 1.15rem; opacity: .9; margin: 18px 0 32px; max-width: 600px; }
-  .btn { display: inline-block; padding: 14px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; font-size: 1rem; }
-  .btn-primary { background: var(--accent); color: #1a1a1a; }
-  .btn-ghost { border: 2px solid rgba(255,255,255,.7); color: #fff; margin-left: 10px; }
-  .btn:hover { filter: brightness(1.05); }
+  /* Header */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  header.scrolled { background: rgba(11, 11, 12, .94); backdrop-filter: blur(8px); border-color: var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
+  .logo { display: flex; flex-direction: column; line-height: 1; }
+  .logo b { font-family: var(--serif); font-weight: 600; font-size: 1.55rem; letter-spacing: .04em; color: var(--gold-light); }
+  .logo small { font-size: .58rem; letter-spacing: .45em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text); opacity: .8; transition: color .2s, opacity .2s; }
+  .nav-links a:hover { color: var(--gold); opacity: 1; }
+  .lang { display: flex; border: 1px solid var(--line); }
+  .lang button { border: 0; background: none; padding: 7px 13px; font: 500 .72rem var(--sans); letter-spacing: .15em; cursor: pointer; color: var(--muted); }
+  .lang button.active { background: var(--gold); color: var(--black); }
 
-  section { padding: 72px 0; }
-  section.alt { background: var(--bg-alt); }
-  h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 10px; }
-  .lead { color: var(--muted); margin-bottom: 36px; max-width: 640px; }
+  /* Hero */
+  .hero { position: relative; min-height: min(100vh, 860px); display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden;
+    background:
+      radial-gradient(ellipse at 75% 35%, rgba(201,169,97,.16), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(201,169,97,.08), transparent 50%),
+      linear-gradient(180deg, #121214 0%, var(--black) 100%); }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: .5; }
+  .hero h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); max-width: 860px; margin: 22px 0 26px; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero p { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin-bottom: 44px; }
+  .btn { display: inline-block; padding: 16px 34px; font: 500 .76rem var(--sans); letter-spacing: .24em; text-transform: uppercase; cursor: pointer; transition: all .25s; border: 1px solid var(--gold); }
+  .btn-gold { background: var(--gold); color: var(--black); }
+  .btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline { background: transparent; color: var(--gold-light); margin-left: 14px; }
+  .btn-outline:hover { background: rgba(201,169,97,.1); }
+  .hero-stats { display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap; }
+  .hero-stats div { border-left: 1px solid var(--line); padding-left: 18px; }
+  .hero-stats b { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 500; color: var(--gold-light); }
+  .hero-stats span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .card { background: #fff; border: 1px solid #e3e8ef; border-radius: var(--radius); padding: 26px; }
-  .card .icon { font-size: 2rem; margin-bottom: 12px; }
-  .card h3 { margin-bottom: 8px; font-size: 1.15rem; }
-  .card p { color: var(--muted); font-size: .97rem; }
+  section { padding: 110px 0; }
+  section.alt { background: var(--panel); }
 
-  .why li { list-style: none; padding: 10px 0 10px 34px; position: relative; }
-  .why li::before { content: "✓"; position: absolute; left: 0; top: 8px; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff; font-size: .8rem; display: grid; place-items: center; }
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 60px; }
+  .service { background: var(--black); padding: 44px 34px; transition: background .3s; }
+  .service:hover { background: var(--panel-2); }
+  .service .num { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 1.1rem; }
+  .service h3 { font-size: 1.65rem; margin: 14px 0 12px; }
+  .service p { color: var(--muted); font-size: .92rem; }
 
-  form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 28px; border-radius: var(--radius); border: 1px solid #e3e8ef; }
-  form label { display: flex; flex-direction: column; font-weight: 600; font-size: .9rem; gap: 6px; }
+  /* Fleet */
+  .fleet { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .fleet-img { aspect-ratio: 4 / 3; border: 1px solid var(--line); position: relative; display: grid; place-items: center; text-align: center;
+    background: linear-gradient(135deg, #1d1d20, #0f0f11); }
+  .fleet-img::before { content: ""; position: absolute; inset: 14px; border: 1px solid var(--line); }
+  .fleet-img span { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.15rem; padding: 0 24px; }
+  .features { list-style: none; margin-top: 30px; }
+  .features li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; gap: 16px; align-items: baseline; }
+  .features li::before { content: "◆"; color: var(--gold); font-size: .6rem; }
+
+  /* Booking */
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 30px; margin-top: 56px; padding: 52px; border: 1px solid var(--line); background: var(--black); }
+  form label { display: flex; flex-direction: column; gap: 8px; font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
   form .full { grid-column: 1 / -1; }
-  input, select, textarea { font: inherit; padding: 11px 12px; border: 1px solid #cfd8e3; border-radius: 10px; background: #fff; color: var(--text); }
-  textarea { min-height: 90px; resize: vertical; }
-  .form-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn-wa { background: #25d366; color: #fff; }
-  .btn-mail { background: var(--brand); color: #fff; }
+  input, select, textarea { font: 300 1rem var(--sans); letter-spacing: normal; text-transform: none; color: var(--text); background: transparent; border: 0; border-bottom: 1px solid rgba(236,232,225,.22); padding: 10px 2px; border-radius: 0; outline: none; transition: border-color .2s; color-scheme: dark; }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  select option { background: var(--panel); }
+  textarea { min-height: 80px; resize: vertical; }
+  .form-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; }
+  .btn-wa { background: transparent; color: var(--gold-light); }
+  .btn-wa:hover { background: rgba(201,169,97,.1); }
 
-  .contact-row { display: flex; flex-wrap: wrap; gap: 28px; }
-  .contact-row div { min-width: 200px; }
-  .contact-row strong { display: block; color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-top: 56px; }
+  .contact-grid div { border-top: 1px solid var(--line); padding-top: 22px; }
+  .contact-grid strong { display: block; font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+  .contact-grid a, .contact-grid span { font-family: var(--serif); font-size: 1.45rem; }
+  .contact-grid a:hover { color: var(--gold-light); }
 
-  footer { background: var(--text); color: #c7d0db; padding: 28px 0; font-size: .9rem; text-align: center; }
+  footer { border-top: 1px solid var(--line); padding: 38px 0; text-align: center; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+  footer b { font-family: var(--serif); font-size: 1.2rem; letter-spacing: .05em; text-transform: none; color: var(--gold-light); font-weight: 500; display: block; margin-bottom: 8px; }
 
-  @media (max-width: 720px) {
+  @media (max-width: 860px) {
     .nav-links { display: none; }
-    form { grid-template-columns: 1fr; }
-    .btn-ghost { margin: 12px 0 0; }
-    section { padding: 56px 0; }
+    .fleet { grid-template-columns: 1fr; gap: 40px; }
+    form { grid-template-columns: 1fr; padding: 30px 20px; }
+    section { padding: 80px 0; }
+    .btn-outline { margin: 14px 0 0; }
+    .hero-stats { gap: 28px; margin-top: 56px; }
   }
 </style>
 </head>
 <body>
 
-<header>
+<header id="top">
   <div class="wrap nav">
-    <a href="#" class="logo">Kyle Angela <span>Transport</span></a>
+    <a href="#" class="logo"><b>Kyle Angela</b><small>Transport</small></a>
     <nav class="nav-links">
       <a href="#services" data-i18n="nav.services">Services</a>
-      <a href="#why" data-i18n="nav.why">Why us</a>
-      <a href="#book" data-i18n="nav.book">Book</a>
+      <a href="#fleet" data-i18n="nav.fleet">Limousine</a>
+      <a href="#book" data-i18n="nav.book">Réserver</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="en">EN</button>
       <button type="button" data-lang="fr">FR</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <h1 data-i18n="hero.title">Reliable private transport in France</h1>
-    <p data-i18n="hero.sub">Airport and train station transfers, private drivers and day trips — comfortable cars, fixed prices, friendly French & English speaking service.</p>
-    <a href="#book" class="btn btn-primary" data-i18n="hero.cta">Book a ride</a>
-    <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Our services</a>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Limousine & chauffeur privé · France</div>
+    <h1 data-i18n-html="hero.title">L'art de voyager <em>avec élégance</em></h1>
+    <p data-i18n="hero.sub">Un service de limousine de luxe avec chauffeur pour vos transferts, mariages, événements et déplacements d'affaires. Discrétion, ponctualité et confort absolu.</p>
+    <a href="#book" class="btn btn-gold" data-i18n="hero.cta">Réserver</a>
+    <a href="#services" class="btn btn-outline" data-i18n="hero.cta2">Découvrir</a>
+    <div class="hero-stats">
+      <div><b>24/7</b><span data-i18n="stat.1">Disponibilité</span></div>
+      <div><b>VIP</b><span data-i18n="stat.2">Service premium</span></div>
+      <div><b>FR · EN</b><span data-i18n="stat.3">Chauffeur bilingue</span></div>
+    </div>
   </div>
 </div>
 
 <section id="services">
+  <div class="wrap center">
+    <div class="eyebrow" data-i18n="services.eyebrow">Nos prestations</div>
+    <h2 data-i18n="services.title">Un service sur mesure</h2>
+    <div class="rule"></div>
+    <p class="lead" data-i18n="services.lead">Chaque trajet est pensé pour vous offrir une expérience inoubliable, du premier instant jusqu'à destination.</p>
+  </div>
   <div class="wrap">
-    <h2 data-i18n="services.title">Our services</h2>
-    <p class="lead" data-i18n="services.lead">Wherever you need to go in France and beyond, we get you there safely and on time.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="icon">✈️</div>
-        <h3 data-i18n="s1.t">Airport transfers</h3>
-        <p data-i18n="s1.d">Airports and train stations. We track your flight or train and wait for you.</p>
+    <div class="services">
+      <div class="service">
+        <div class="num">I.</div>
+        <h3 data-i18n="s1.t">Transferts VIP</h3>
+        <p data-i18n="s1.d">Aéroports et gares. Accueil personnalisé, suivi de votre vol ou train, aide aux bagages.</p>
       </div>
-      <div class="card">
-        <div class="icon">🚐</div>
-        <h3 data-i18n="s2.t">Private driver</h3>
-        <p data-i18n="s2.d">Hire a car with a driver by the hour or by the day, for business or leisure.</p>
+      <div class="service">
+        <div class="num">II.</div>
+        <h3 data-i18n="s2.t">Mariages</h3>
+        <p data-i18n="s2.d">Arrivez avec prestige le plus beau jour de votre vie. Véhicule décoré sur demande.</p>
       </div>
-      <div class="card">
-        <div class="icon">🏔️</div>
-        <h3 data-i18n="s3.t">Day trips & tours</h3>
-        <p data-i18n="s3.d">Visit the best places in the region at your own pace, with a local driver.</p>
+      <div class="service">
+        <div class="num">III.</div>
+        <h3 data-i18n="s3.t">Soirées & événements</h3>
+        <p data-i18n="s3.d">Galas, anniversaires, soirées privées, enterrements de vie de jeune fille ou garçon.</p>
       </div>
-      <div class="card">
-        <div class="icon">🌍</div>
-        <h3 data-i18n="s4.t">Long-distance & cross-border</h3>
-        <p data-i18n="s4.d">Comfortable rides between cities and to neighbouring countries.</p>
+      <div class="service">
+        <div class="num">IV.</div>
+        <h3 data-i18n="s4.t">Affaires</h3>
+        <p data-i18n="s4.d">Déplacements professionnels et accueil de vos clients et partenaires avec distinction.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="why" class="alt">
-  <div class="wrap">
-    <h2 data-i18n="why.title">Why travel with us</h2>
-    <ul class="why">
-      <li data-i18n="why.1">Fixed prices agreed before the trip — no surprises</li>
-      <li data-i18n="why.2">Clean, air-conditioned vehicles</li>
-      <li data-i18n="why.3">French & English speaking drivers</li>
-      <li data-i18n="why.4">Available 24/7, including early and late flights</li>
-      <li data-i18n="why.5">Child seats on request</li>
-    </ul>
+<section id="fleet" class="alt">
+  <div class="wrap fleet">
+    <div class="fleet-img"><span data-i18n="fleet.photo">Photo de la limousine à venir</span></div>
+    <div>
+      <div class="eyebrow" data-i18n="fleet.eyebrow">Notre limousine</div>
+      <h2 data-i18n="fleet.title">Le luxe à chaque kilomètre</h2>
+      <div class="rule"></div>
+      <p class="lead" data-i18n="fleet.lead">Installez-vous dans un intérieur raffiné et laissez notre chauffeur s'occuper de tout.</p>
+      <ul class="features">
+        <li data-i18n="f.1">Intérieur cuir et éclairage d'ambiance</li>
+        <li data-i18n="f.2">Chauffeur professionnel en tenue</li>
+        <li data-i18n="f.3">Rafraîchissements à bord</li>
+        <li data-i18n="f.4">Tarif fixe confirmé avant la réservation</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <section id="book">
   <div class="wrap">
-    <h2 data-i18n="book.title">Request a booking</h2>
-    <p class="lead" data-i18n="book.lead">Send us your trip details and we will reply quickly with a price.</p>
+    <div class="center">
+      <div class="eyebrow" data-i18n="book.eyebrow">Réservation</div>
+      <h2 data-i18n="book.title">Réservez votre limousine</h2>
+      <div class="rule"></div>
+      <p class="lead" data-i18n="book.lead">Indiquez-nous les détails de votre trajet. Nous vous répondrons rapidement avec un devis personnalisé.</p>
+    </div>
     <form id="bookForm" novalidate>
-      <label><span data-i18n="f.name">Full name</span><input name="name" required></label>
-      <label><span data-i18n="f.phone">Phone / WhatsApp</span><input name="phone" type="tel"></label>
-      <label><span data-i18n="f.from">Pick-up location</span><input name="from"></label>
-      <label><span data-i18n="f.to">Destination</span><input name="to"></label>
-      <label><span data-i18n="f.date">Date & time</span><input name="date" type="datetime-local"></label>
-      <label><span data-i18n="f.pax">Passengers</span>
+      <label><span data-i18n="form.name">Nom complet</span><input name="name" required></label>
+      <label><span data-i18n="form.phone">Téléphone / WhatsApp</span><input name="phone" type="tel"></label>
+      <label><span data-i18n="form.type">Prestation</span>
+        <select name="type">
+          <option data-i18n="s1.t">Transferts VIP</option>
+          <option data-i18n="s2.t">Mariages</option>
+          <option data-i18n="s3.t">Soirées & événements</option>
+          <option data-i18n="s4.t">Affaires</option>
+          <option data-i18n="form.other">Autre</option>
+        </select>
+      </label>
+      <label><span data-i18n="form.date">Date et heure</span><input name="date" type="datetime-local"></label>
+      <label><span data-i18n="form.from">Lieu de prise en charge</span><input name="from"></label>
+      <label><span data-i18n="form.to">Destination</span><input name="to"></label>
+      <label><span data-i18n="form.pax">Passagers</span>
         <select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5–8</option><option>8+</option></select>
       </label>
-      <label class="full"><span data-i18n="f.notes">Notes (flight number, luggage, child seat…)</span><textarea name="notes"></textarea></label>
+      <label><span data-i18n="form.duration">Durée souhaitée</span><input name="duration"></label>
+      <label class="full"><span data-i18n="form.notes">Demandes particulières</span><textarea name="notes"></textarea></label>
       <div class="full form-actions">
-        <button type="submit" class="btn btn-wa" data-via="wa" data-i18n="f.wa">Send via WhatsApp</button>
-        <button type="submit" class="btn btn-mail" data-via="mail" data-i18n="f.mail">Send via Email</button>
+        <button type="submit" class="btn btn-gold" data-via="mail" data-i18n="form.mail">Envoyer par e-mail</button>
+        <button type="submit" class="btn btn-wa" data-via="wa" data-i18n="form.wa">Envoyer par WhatsApp</button>
       </div>
     </form>
   </div>
@@ -173,88 +245,103 @@
 
 <section id="contact" class="alt">
   <div class="wrap">
-    <h2 data-i18n="contact.title">Contact us</h2>
-    <div class="contact-row">
-      <div><strong data-i18n="contact.phone">Phone / WhatsApp</strong><a id="phoneLink" href="#">+33 X XX XX XX XX</a></div>
-      <div><strong>Email</strong><a id="mailLink" href="#">info@ka-travel.com</a></div>
-      <div><strong data-i18n="contact.base">Based in</strong><span data-i18n="contact.city">France</span></div>
+    <div class="center">
+      <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+      <h2 data-i18n="contact.title">À votre service</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div><strong data-i18n="contact.phone">Téléphone / WhatsApp</strong><a id="phoneLink" href="#">+33 X XX XX XX XX</a></div>
+      <div><strong>E-mail</strong><a id="mailLink" href="#">contact@ka-travel.com</a></div>
+      <div><strong data-i18n="contact.area">Zone de service</strong><span data-i18n="contact.city">France</span></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> Kyle Angela Transport · <span data-i18n="footer">Transport services in France</span></div>
+  <div class="wrap"><b>Kyle Angela Transport</b>© <span id="year"></span> · <span data-i18n="footer">Limousine & chauffeur privé</span></div>
 </footer>
 
 <script>
   // ---- Business settings: edit these ----
   const WHATSAPP_NUMBER = "33XXXXXXXXX";      // digits only, with country code
-  const EMAIL = "info@ka-travel.com";
+  const EMAIL = "contact@ka-travel.com";
+  const PHONE_DISPLAY = "+33 X XX XX XX XX";
 
   const T = {
-    en: {
-      "nav.services": "Services", "nav.why": "Why us", "nav.book": "Book", "nav.contact": "Contact",
-      "hero.title": "Reliable private transport in France",
-      "hero.sub": "Airport and train station transfers, private drivers and day trips — comfortable cars, fixed prices, friendly French & English speaking service.",
-      "hero.cta": "Book a ride", "hero.cta2": "Our services",
-      "services.title": "Our services",
-      "services.lead": "Wherever you need to go in France and beyond, we get you there safely and on time.",
-      "s1.t": "Airport transfers", "s1.d": "Airports and train stations. We track your flight or train and wait for you.",
-      "s2.t": "Private driver", "s2.d": "Hire a car with a driver by the hour or by the day, for business or leisure.",
-      "s3.t": "Day trips & tours", "s3.d": "Visit the best places in the region at your own pace, with a local driver.",
-      "s4.t": "Long-distance & cross-border", "s4.d": "Comfortable rides between cities and to neighbouring countries.",
-      "why.title": "Why travel with us",
-      "why.1": "Fixed prices agreed before the trip — no surprises",
-      "why.2": "Clean, air-conditioned vehicles",
-      "why.3": "French & English speaking drivers",
-      "why.4": "Available 24/7, including early and late flights",
-      "why.5": "Child seats on request",
-      "book.title": "Request a booking",
-      "book.lead": "Send us your trip details and we will reply quickly with a price.",
-      "f.name": "Full name", "f.phone": "Phone / WhatsApp", "f.from": "Pick-up location", "f.to": "Destination",
-      "f.date": "Date & time", "f.pax": "Passengers", "f.notes": "Notes (flight number, luggage, child seat…)",
-      "f.wa": "Send via WhatsApp", "f.mail": "Send via Email",
-      "f.required": "Please enter your name.",
-      "msg.intro": "Hello Kyle Angela Transport, I would like to book a ride:",
-      "contact.title": "Contact us", "contact.phone": "Phone / WhatsApp", "contact.base": "Based in", "contact.city": "France",
-      "footer": "Transport services in France"
-    },
     fr: {
-      "nav.services": "Services", "nav.why": "Pourquoi nous", "nav.book": "Réserver", "nav.contact": "Contact",
-      "hero.title": "Votre transport privé fiable en France",
-      "hero.sub": "Transferts aéroport et gare, chauffeur privé et excursions — voitures confortables, prix fixes, service chaleureux en français et en anglais.",
-      "hero.cta": "Réserver un trajet", "hero.cta2": "Nos services",
-      "services.title": "Nos services",
-      "services.lead": "Où que vous alliez en France et au-delà, nous vous y conduisons en toute sécurité et à l'heure.",
-      "s1.t": "Transferts aéroport", "s1.d": "Aéroports et gares. Nous suivons votre vol ou votre train et vous attendons.",
-      "s2.t": "Chauffeur privé", "s2.d": "Louez une voiture avec chauffeur à l'heure ou à la journée, pour le travail ou les loisirs.",
-      "s3.t": "Excursions & visites", "s3.d": "Découvrez les plus beaux sites de la région à votre rythme, avec un chauffeur local.",
-      "s4.t": "Longue distance & international", "s4.d": "Trajets confortables entre les villes et vers les pays voisins.",
-      "why.title": "Pourquoi voyager avec nous",
-      "why.1": "Prix fixe convenu avant le trajet — aucune surprise",
-      "why.2": "Véhicules propres et climatisés",
-      "why.3": "Chauffeurs parlant français et anglais",
-      "why.4": "Disponibles 24h/24 et 7j/7, y compris pour les vols tôt ou tard",
-      "why.5": "Sièges enfants sur demande",
-      "book.title": "Demande de réservation",
-      "book.lead": "Envoyez-nous les détails de votre trajet et nous vous répondrons rapidement avec un prix.",
-      "f.name": "Nom complet", "f.phone": "Téléphone / WhatsApp", "f.from": "Lieu de prise en charge", "f.to": "Destination",
-      "f.date": "Date et heure", "f.pax": "Passagers", "f.notes": "Remarques (numéro de vol, bagages, siège enfant…)",
-      "f.wa": "Envoyer par WhatsApp", "f.mail": "Envoyer par e-mail",
-      "f.required": "Veuillez indiquer votre nom.",
-      "msg.intro": "Bonjour Kyle Angela Transport, je souhaite réserver un trajet :",
-      "contact.title": "Contactez-nous", "contact.phone": "Téléphone / WhatsApp", "contact.base": "Basés en", "contact.city": "France",
-      "footer": "Services de transport en France"
+      "nav.services": "Services", "nav.fleet": "Limousine", "nav.book": "Réserver", "nav.contact": "Contact",
+      "hero.eyebrow": "Limousine & chauffeur privé · France",
+      "hero.title": "L'art de voyager <em>avec élégance</em>",
+      "hero.sub": "Un service de limousine de luxe avec chauffeur pour vos transferts, mariages, événements et déplacements d'affaires. Discrétion, ponctualité et confort absolu.",
+      "hero.cta": "Réserver", "hero.cta2": "Découvrir",
+      "stat.1": "Disponibilité", "stat.2": "Service premium", "stat.3": "Chauffeur bilingue",
+      "services.eyebrow": "Nos prestations", "services.title": "Un service sur mesure",
+      "services.lead": "Chaque trajet est pensé pour vous offrir une expérience inoubliable, du premier instant jusqu'à destination.",
+      "s1.t": "Transferts VIP", "s1.d": "Aéroports et gares. Accueil personnalisé, suivi de votre vol ou train, aide aux bagages.",
+      "s2.t": "Mariages", "s2.d": "Arrivez avec prestige le plus beau jour de votre vie. Véhicule décoré sur demande.",
+      "s3.t": "Soirées & événements", "s3.d": "Galas, anniversaires, soirées privées, enterrements de vie de jeune fille ou garçon.",
+      "s4.t": "Affaires", "s4.d": "Déplacements professionnels et accueil de vos clients et partenaires avec distinction.",
+      "fleet.eyebrow": "Notre limousine", "fleet.title": "Le luxe à chaque kilomètre",
+      "fleet.lead": "Installez-vous dans un intérieur raffiné et laissez notre chauffeur s'occuper de tout.",
+      "fleet.photo": "Photo de la limousine à venir",
+      "f.1": "Intérieur cuir et éclairage d'ambiance", "f.2": "Chauffeur professionnel en tenue",
+      "f.3": "Rafraîchissements à bord", "f.4": "Tarif fixe confirmé avant la réservation",
+      "book.eyebrow": "Réservation", "book.title": "Réservez votre limousine",
+      "book.lead": "Indiquez-nous les détails de votre trajet. Nous vous répondrons rapidement avec un devis personnalisé.",
+      "form.name": "Nom complet", "form.phone": "Téléphone / WhatsApp", "form.type": "Prestation", "form.other": "Autre",
+      "form.date": "Date et heure", "form.from": "Lieu de prise en charge", "form.to": "Destination",
+      "form.pax": "Passagers", "form.duration": "Durée souhaitée", "form.notes": "Demandes particulières",
+      "form.mail": "Envoyer par e-mail", "form.wa": "Envoyer par WhatsApp",
+      "form.required": "Veuillez indiquer votre nom.",
+      "msg.intro": "Bonjour Kyle Angela Transport, je souhaite réserver une limousine :",
+      "contact.eyebrow": "Contact", "contact.title": "À votre service",
+      "contact.phone": "Téléphone / WhatsApp", "contact.area": "Zone de service", "contact.city": "France",
+      "footer": "Limousine & chauffeur privé"
+    },
+    en: {
+      "nav.services": "Services", "nav.fleet": "Limousine", "nav.book": "Book", "nav.contact": "Contact",
+      "hero.eyebrow": "Limousine & private chauffeur · France",
+      "hero.title": "The art of travelling <em>in elegance</em>",
+      "hero.sub": "A luxury chauffeured limousine service for transfers, weddings, events and business travel. Discretion, punctuality and absolute comfort.",
+      "hero.cta": "Book now", "hero.cta2": "Discover",
+      "stat.1": "Availability", "stat.2": "Premium service", "stat.3": "Bilingual chauffeur",
+      "services.eyebrow": "Our services", "services.title": "A tailor-made service",
+      "services.lead": "Every journey is designed to give you an unforgettable experience, from the first moment to your destination.",
+      "s1.t": "VIP transfers", "s1.d": "Airports and train stations. Personal meet & greet, flight or train tracking, luggage assistance.",
+      "s2.t": "Weddings", "s2.d": "Arrive in style on the most beautiful day of your life. Decorated vehicle on request.",
+      "s3.t": "Nights out & events", "s3.d": "Galas, birthdays, private parties, bachelor and bachelorette parties.",
+      "s4.t": "Business", "s4.d": "Corporate travel and welcoming your clients and partners with distinction.",
+      "fleet.eyebrow": "Our limousine", "fleet.title": "Luxury in every mile",
+      "fleet.lead": "Settle into a refined interior and let our chauffeur take care of everything.",
+      "fleet.photo": "Limousine photo coming soon",
+      "f.1": "Leather interior and ambient lighting", "f.2": "Professional uniformed chauffeur",
+      "f.3": "Refreshments on board", "f.4": "Fixed price confirmed before booking",
+      "book.eyebrow": "Reservations", "book.title": "Book your limousine",
+      "book.lead": "Tell us about your journey. We will reply quickly with a personalised quote.",
+      "form.name": "Full name", "form.phone": "Phone / WhatsApp", "form.type": "Service", "form.other": "Other",
+      "form.date": "Date & time", "form.from": "Pick-up location", "form.to": "Destination",
+      "form.pax": "Passengers", "form.duration": "Desired duration", "form.notes": "Special requests",
+      "form.mail": "Send by email", "form.wa": "Send via WhatsApp",
+      "form.required": "Please enter your name.",
+      "msg.intro": "Hello Kyle Angela Transport, I would like to book a limousine:",
+      "contact.eyebrow": "Contact", "contact.title": "At your service",
+      "contact.phone": "Phone / WhatsApp", "contact.area": "Service area", "contact.city": "France",
+      "footer": "Limousine & private chauffeur"
     }
   };
 
-  let lang = "en";
+  let lang = "fr";
   function setLang(l) {
-    lang = T[l] ? l : "en";
+    lang = T[l] ? l : "fr";
     document.documentElement.lang = lang;
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const v = T[lang][el.dataset.i18n];
       if (v) el.textContent = v;
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(el => {
+      const v = T[lang][el.dataset.i18nHtml];
+      if (v) el.innerHTML = v;
     });
     document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
     try { localStorage.setItem("lang", lang); } catch (e) {}
@@ -265,30 +352,41 @@
   try { saved = localStorage.getItem("lang"); } catch (e) {}
   setLang(saved || ((navigator.language || "").toLowerCase().startsWith("en") ? "en" : "fr"));
 
+  const header = document.getElementById("top");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
   document.getElementById("year").textContent = new Date().getFullYear();
-  document.getElementById("phoneLink").href = "https://wa.me/" + WHATSAPP_NUMBER;
-  document.getElementById("mailLink").href = "mailto:" + EMAIL;
+  const phoneLink = document.getElementById("phoneLink");
+  phoneLink.href = "https://wa.me/" + WHATSAPP_NUMBER;
+  phoneLink.textContent = PHONE_DISPLAY;
+  const mailLink = document.getElementById("mailLink");
+  mailLink.href = "mailto:" + EMAIL;
+  mailLink.textContent = EMAIL;
 
   const form = document.getElementById("bookForm");
   form.addEventListener("submit", e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form));
-    if (!d.name.trim()) { alert(T[lang]["f.required"]); return; }
+    if (!d.name.trim()) { alert(T[lang]["form.required"]); return; }
     const t = T[lang];
     const msg = [
       t["msg.intro"], "",
-      t["f.name"] + ": " + d.name,
-      t["f.phone"] + ": " + d.phone,
-      t["f.from"] + ": " + d.from,
-      t["f.to"] + ": " + d.to,
-      t["f.date"] + ": " + d.date,
-      t["f.pax"] + ": " + d.pax,
-      t["f.notes"].split(" (")[0] + ": " + d.notes
+      t["form.name"] + ": " + d.name,
+      t["form.phone"] + ": " + d.phone,
+      t["form.type"] + ": " + d.type,
+      t["form.date"] + ": " + d.date,
+      t["form.from"] + ": " + d.from,
+      t["form.to"] + ": " + d.to,
+      t["form.pax"] + ": " + d.pax,
+      t["form.duration"] + ": " + d.duration,
+      t["form.notes"] + ": " + d.notes
     ].join("\n");
-    if (e.submitter && e.submitter.dataset.via === "mail") {
-      location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Booking — " + d.name) + "&body=" + encodeURIComponent(msg);
-    } else {
+    if (e.submitter && e.submitter.dataset.via === "wa") {
       window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+    } else {
+      location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Réservation limousine — " + d.name) + "&body=" + encodeURIComponent(msg);
     }
   });
 </script>
