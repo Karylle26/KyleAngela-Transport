@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KA Travel — Transport in Montenegro</title>
+<meta name="description" content="Airport transfers, private drivers and tours across Montenegro. English & French speaking service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f3f6fa;
+    --text: #14202e;
+    --muted: #5b6878;
+    --brand: #0b5394;
+    --brand-dark: #083d6e;
+    --accent: #f2a900;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  header { position: sticky; top: 0; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); border-bottom: 1px solid #e3e8ef; z-index: 10; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .logo { font-weight: 800; font-size: 1.25rem; color: var(--brand); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: .95rem; }
+  .nav-links a:hover { color: var(--brand); }
+  .lang { display: flex; border: 1px solid #cfd8e3; border-radius: 999px; overflow: hidden; }
+  .lang button { border: 0; background: none; padding: 6px 12px; font: inherit; font-weight: 600; font-size: .85rem; cursor: pointer; color: var(--muted); }
+  .lang button.active { background: var(--brand); color: #fff; }
+
+  .hero { background: linear-gradient(135deg, var(--brand-dark), var(--brand) 60%, #1c7ac9); color: #fff; padding: 88px 0 96px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; max-width: 720px; }
+  .hero p { font-size: 1.15rem; opacity: .9; margin: 18px 0 32px; max-width: 600px; }
+  .btn { display: inline-block; padding: 14px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; font-size: 1rem; }
+  .btn-primary { background: var(--accent); color: #1a1a1a; }
+  .btn-ghost { border: 2px solid rgba(255,255,255,.7); color: #fff; margin-left: 10px; }
+  .btn:hover { filter: brightness(1.05); }
+
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg-alt); }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 10px; }
+  .lead { color: var(--muted); margin-bottom: 36px; max-width: 640px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .card { background: #fff; border: 1px solid #e3e8ef; border-radius: var(--radius); padding: 26px; }
+  .card .icon { font-size: 2rem; margin-bottom: 12px; }
+  .card h3 { margin-bottom: 8px; font-size: 1.15rem; }
+  .card p { color: var(--muted); font-size: .97rem; }
+
+  .why li { list-style: none; padding: 10px 0 10px 34px; position: relative; }
+  .why li::before { content: "✓"; position: absolute; left: 0; top: 8px; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff; font-size: .8rem; display: grid; place-items: center; }
+
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 28px; border-radius: var(--radius); border: 1px solid #e3e8ef; }
+  form label { display: flex; flex-direction: column; font-weight: 600; font-size: .9rem; gap: 6px; }
+  form .full { grid-column: 1 / -1; }
+  input, select, textarea { font: inherit; padding: 11px 12px; border: 1px solid #cfd8e3; border-radius: 10px; background: #fff; color: var(--text); }
+  textarea { min-height: 90px; resize: vertical; }
+  .form-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-wa { background: #25d366; color: #fff; }
+  .btn-mail { background: var(--brand); color: #fff; }
+
+  .contact-row { display: flex; flex-wrap: wrap; gap: 28px; }
+  .contact-row div { min-width: 200px; }
+  .contact-row strong { display: block; color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+
+  footer { background: var(--text); color: #c7d0db; padding: 28px 0; font-size: .9rem; text-align: center; }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    form { grid-template-columns: 1fr; }
+    .btn-ghost { margin: 12px 0 0; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">KA <span>Travel</span></a>
+    <nav class="nav-links">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#why" data-i18n="nav.why">Why us</a>
+      <a href="#book" data-i18n="nav.book">Book</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1 data-i18n="hero.title">Reliable transport across Montenegro</h1>
+    <p data-i18n="hero.sub">Airport transfers, private drivers and day trips — comfortable cars, fixed prices, friendly English & French speaking service.</p>
+    <a href="#book" class="btn btn-primary" data-i18n="hero.cta">Book a ride</a>
+    <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Our services</a>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2 data-i18n="services.title">Our services</h2>
+    <p class="lead" data-i18n="services.lead">Wherever you need to go in Montenegro and the region, we get you there safely and on time.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">✈️</div>
+        <h3 data-i18n="s1.t">Airport transfers</h3>
+        <p data-i18n="s1.d">Podgorica, Tivat and Dubrovnik airports. We track your flight and wait for you.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚐</div>
+        <h3 data-i18n="s2.t">Private driver</h3>
+        <p data-i18n="s2.d">Hire a car with a driver by the hour or by the day, for business or leisure.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏔️</div>
+        <h3 data-i18n="s3.t">Day trips & tours</h3>
+        <p data-i18n="s3.d">Kotor, Budva, Lovćen, Durmitor, Skadar Lake and more — at your own pace.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3 data-i18n="s4.t">Cross-border trips</h3>
+        <p data-i18n="s4.d">Comfortable rides to Croatia, Albania, Bosnia & Herzegovina and Serbia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap">
+    <h2 data-i18n="why.title">Why travel with us</h2>
+    <ul class="why">
+      <li data-i18n="why.1">Fixed prices agreed before the trip — no surprises</li>
+      <li data-i18n="why.2">Clean, air-conditioned vehicles</li>
+      <li data-i18n="why.3">English & French speaking drivers</li>
+      <li data-i18n="why.4">Available 24/7, including early and late flights</li>
+      <li data-i18n="why.5">Child seats on request — we are a family business too</li>
+    </ul>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <h2 data-i18n="book.title">Request a booking</h2>
+    <p class="lead" data-i18n="book.lead">Send us your trip details and we will reply quickly with a price.</p>
+    <form id="bookForm" novalidate>
+      <label><span data-i18n="f.name">Full name</span><input name="name" required></label>
+      <label><span data-i18n="f.phone">Phone / WhatsApp</span><input name="phone" type="tel"></label>
+      <label><span data-i18n="f.from">Pick-up location</span><input name="from"></label>
+      <label><span data-i18n="f.to">Destination</span><input name="to"></label>
+      <label><span data-i18n="f.date">Date & time</span><input name="date" type="datetime-local"></label>
+      <label><span data-i18n="f.pax">Passengers</span>
+        <select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5–8</option><option>8+</option></select>
+      </label>
+      <label class="full"><span data-i18n="f.notes">Notes (flight number, luggage, child seat…)</span><textarea name="notes"></textarea></label>
+      <div class="full form-actions">
+        <button type="submit" class="btn btn-wa" data-via="wa" data-i18n="f.wa">Send via WhatsApp</button>
+        <button type="submit" class="btn btn-mail" data-via="mail" data-i18n="f.mail">Send via Email</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="wrap">
+    <h2 data-i18n="contact.title">Contact us</h2>
+    <div class="contact-row">
+      <div><strong data-i18n="contact.phone">Phone / WhatsApp</strong><a id="phoneLink" href="#">+382 XX XXX XXX</a></div>
+      <div><strong>Email</strong><a id="mailLink" href="#">info@ka-travel.com</a></div>
+      <div><strong data-i18n="contact.base">Based in</strong><span data-i18n="contact.city">Montenegro</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> KA Travel · <span data-i18n="footer">Transport services in Montenegro</span></div>
+</footer>
+
+<script>
+  // ---- Business settings: edit these ----
+  const WHATSAPP_NUMBER = "382XXXXXXXX";      // digits only, with country code
+  const EMAIL = "info@ka-travel.com";
+
+  const T = {
+    en: {
+      "nav.services": "Services", "nav.why": "Why us", "nav.book": "Book", "nav.contact": "Contact",
+      "hero.title": "Reliable transport across Montenegro",
+      "hero.sub": "Airport transfers, private drivers and day trips — comfortable cars, fixed prices, friendly English & French speaking service.",
+      "hero.cta": "Book a ride", "hero.cta2": "Our services",
+      "services.title": "Our services",
+      "services.lead": "Wherever you need to go in Montenegro and the region, we get you there safely and on time.",
+      "s1.t": "Airport transfers", "s1.d": "Podgorica, Tivat and Dubrovnik airports. We track your flight and wait for you.",
+      "s2.t": "Private driver", "s2.d": "Hire a car with a driver by the hour or by the day, for business or leisure.",
+      "s3.t": "Day trips & tours", "s3.d": "Kotor, Budva, Lovćen, Durmitor, Skadar Lake and more — at your own pace.",
+      "s4.t": "Cross-border trips", "s4.d": "Comfortable rides to Croatia, Albania, Bosnia & Herzegovina and Serbia.",
+      "why.title": "Why travel with us",
+      "why.1": "Fixed prices agreed before the trip — no surprises",
+      "why.2": "Clean, air-conditioned vehicles",
+      "why.3": "English & French speaking drivers",
+      "why.4": "Available 24/7, including early and late flights",
+      "why.5": "Child seats on request — we are a family business too",
+      "book.title": "Request a booking",
+      "book.lead": "Send us your trip details and we will reply quickly with a price.",
+      "f.name": "Full name", "f.phone": "Phone / WhatsApp", "f.from": "Pick-up location", "f.to": "Destination",
+      "f.date": "Date & time", "f.pax": "Passengers", "f.notes": "Notes (flight number, luggage, child seat…)",
+      "f.wa": "Send via WhatsApp", "f.mail": "Send via Email",
+      "f.required": "Please enter your name.",
+      "msg.intro": "Hello KA Travel, I would like to book a ride:",
+      "contact.title": "Contact us", "contact.phone": "Phone / WhatsApp", "contact.base": "Based in", "contact.city": "Montenegro",
+      "footer": "Transport services in Montenegro"
+    },
+    fr: {
+      "nav.services": "Services", "nav.why": "Pourquoi nous", "nav.book": "Réserver", "nav.contact": "Contact",
+      "hero.title": "Un transport fiable partout au Monténégro",
+      "hero.sub": "Transferts aéroport, chauffeurs privés et excursions — voitures confortables, prix fixes, service chaleureux en français et en anglais.",
+      "hero.cta": "Réserver un trajet", "hero.cta2": "Nos services",
+      "services.title": "Nos services",
+      "services.lead": "Où que vous alliez au Monténégro et dans la région, nous vous y conduisons en toute sécurité et à l'heure.",
+      "s1.t": "Transferts aéroport", "s1.d": "Aéroports de Podgorica, Tivat et Dubrovnik. Nous suivons votre vol et vous attendons.",
+      "s2.t": "Chauffeur privé", "s2.d": "Louez une voiture avec chauffeur à l'heure ou à la journée, pour le travail ou les loisirs.",
+      "s3.t": "Excursions & visites", "s3.d": "Kotor, Budva, Lovćen, Durmitor, le lac de Skadar et plus — à votre rythme.",
+      "s4.t": "Trajets transfrontaliers", "s4.d": "Trajets confortables vers la Croatie, l'Albanie, la Bosnie-Herzégovine et la Serbie.",
+      "why.title": "Pourquoi voyager avec nous",
+      "why.1": "Prix fixe convenu avant le trajet — aucune surprise",
+      "why.2": "Véhicules propres et climatisés",
+      "why.3": "Chauffeurs parlant français et anglais",
+      "why.4": "Disponibles 24h/24 et 7j/7, y compris pour les vols tôt ou tard",
+      "why.5": "Sièges enfants sur demande — nous sommes aussi une entreprise familiale",
+      "book.title": "Demande de réservation",
+      "book.lead": "Envoyez-nous les détails de votre trajet et nous vous répondrons rapidement avec un prix.",
+      "f.name": "Nom complet", "f.phone": "Téléphone / WhatsApp", "f.from": "Lieu de prise en charge", "f.to": "Destination",
+      "f.date": "Date et heure", "f.pax": "Passagers", "f.notes": "Remarques (numéro de vol, bagages, siège enfant…)",
+      "f.wa": "Envoyer par WhatsApp", "f.mail": "Envoyer par e-mail",
+      "f.required": "Veuillez indiquer votre nom.",
+      "msg.intro": "Bonjour KA Travel, je souhaite réserver un trajet :",
+      "contact.title": "Contactez-nous", "contact.phone": "Téléphone / WhatsApp", "contact.base": "Basés au", "contact.city": "Monténégro",
+      "footer": "Services de transport au Monténégro"
+    }
+  };
+
+  let lang = "en";
+  function setLang(l) {
+    lang = T[l] ? l : "en";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v) el.textContent = v;
+    });
+    document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+  let saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  setLang(saved || ((navigator.language || "").toLowerCase().startsWith("fr") ? "fr" : "en"));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("phoneLink").href = "https://wa.me/" + WHATSAPP_NUMBER;
+  document.getElementById("mailLink").href = "mailto:" + EMAIL;
+
+  const form = document.getElementById("bookForm");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    if (!d.name.trim()) { alert(T[lang]["f.required"]); return; }
+    const t = T[lang];
+    const msg = [
+      t["msg.intro"], "",
+      t["f.name"] + ": " + d.name,
+      t["f.phone"] + ": " + d.phone,
+      t["f.from"] + ": " + d.from,
+      t["f.to"] + ": " + d.to,
+      t["f.date"] + ": " + d.date,
+      t["f.pax"] + ": " + d.pax,
+      t["f.notes"].split(" (")[0] + ": " + d.notes
+    ].join("\n");
+    if (e.submitter && e.submitter.dataset.via === "mail") {
+      location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Booking — " + d.name) + "&body=" + encodeURIComponent(msg);
+    } else {
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+    }
+  });
+</script>
+</body>
+</html>
