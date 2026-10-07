@@ -144,24 +144,36 @@
 
   .field.full { grid-column: 1 / -1; }
 
-  /* Fleet: stacked/offset layers */
-  .fleet { display: grid; grid-template-columns: 1.15fr 1fr; gap: 70px; align-items: center; }
-  .stack { position: relative; padding: 0 28px 28px 0; }
-  .stack::before { content: ""; position: absolute; inset: 28px 0 0 28px; border: 1px solid var(--tan); border-radius: var(--radius); opacity: .55; }
-  .stack .photo { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, #2a2a2a, #111); display: grid; place-items: center; box-shadow: 0 30px 60px rgba(0,0,0,.6); }
-  .stack .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .stack .photo span { color: var(--muted); font-size: .95rem; padding: 0 20px; text-align: center; }
-  .stack .photo.stage { background: radial-gradient(ellipse at 50% 35%, #2c2a26 0%, #121212 65%, #0b0b0b 100%); }
-  .stage canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
-  .stage .hint { position: absolute; top: 18px; right: 20px; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); pointer-events: none; }
-  .stage.ready > span[data-i18n="fleet.photo"] { display: none; }
-  .model-name { margin-top: 6px; color: var(--tan); font-weight: 600; letter-spacing: .02em; }
-  .badge { position: absolute; left: -16px; bottom: 50px; background: var(--tan); color: #111; border-radius: 18px; padding: 16px 22px; box-shadow: 0 20px 40px rgba(0,0,0,.5); }
-  .badge b { display: block; font-size: 1.5rem; line-height: 1.1; }
-  .badge span { font-size: .78rem; font-weight: 600; }
-  .features { list-style: none; margin-top: 28px; display: grid; gap: 14px; }
-  .features li { display: flex; gap: 14px; align-items: center; }
-  .features li .tick { width: 26px; height: 26px; border-radius: 50%; background: rgba(214,187,138,.15); color: var(--tan); display: grid; place-items: center; font-size: .8rem; flex-shrink: 0; }
+  /* Fleet: cars floating above a glowing platform */
+  .cars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 60px; }
+  .car { position: relative; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.07); overflow: hidden;
+    background: radial-gradient(ellipse at 50% 30%, #1d1c1a 0%, #101010 55%, #0b0b0b 100%); }
+  .showcase { position: relative; aspect-ratio: 16 / 11; }
+  .platform { position: absolute; left: 50%; bottom: 9%; width: 82%; aspect-ratio: 4 / 1; transform: translateX(-50%); border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 45%, rgba(214,187,138,.20) 0%, rgba(214,187,138,.06) 45%, rgba(10,10,10,0) 70%), radial-gradient(ellipse, #1a1916 0%, #0c0c0c 72%);
+    border: 1px solid rgba(214,187,138,.6);
+    box-shadow: 0 0 34px rgba(214,187,138,.28), inset 0 0 26px rgba(214,187,138,.18), 0 26px 50px rgba(0,0,0,.75); }
+  .platform::before { content: ""; position: absolute; inset: 14% 9%; border-radius: 50%; border: 1px solid rgba(214,187,138,.28); }
+  .platform::after { content: ""; position: absolute; left: 18%; right: 18%; top: -1px; height: 2px; border-radius: 50%; background: linear-gradient(90deg, transparent, #f3dfb4, transparent); filter: blur(1px); opacity: .9; }
+  .lift-shadow { position: absolute; left: 50%; bottom: 17%; width: 56%; height: 9%; transform: translateX(-50%); border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,0,0,.85), transparent 70%); animation: shadow 6s ease-in-out infinite; }
+  .car-img { position: absolute; left: 50%; bottom: 22%; width: 96%; transform: translateX(-50%); animation: float 6s ease-in-out infinite;
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);
+            mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 58%, transparent 100%);
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,.6)); }
+  .car:nth-child(2) .car-img, .car:nth-child(2) .lift-shadow { animation-delay: -3s; }
+  @keyframes float { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -14px); } }
+  @keyframes shadow { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; } 50% { transform: translateX(-50%) scale(.86); opacity: .7; } }
+  @media (prefers-reduced-motion: reduce) { .car-img, .lift-shadow { animation: none; } }
+  .car-info { padding: 6px 34px 34px; }
+  .car-info h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: 2rem; margin: 8px 0 12px; }
+  .car-info p { color: var(--muted); font-size: .95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .chips > span { display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(214,187,138,.3); color: #e9e4da; }
+  .chips svg { width: 15px; height: 15px; color: var(--tan); }
+  .perks { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 30px; margin-top: 40px; color: #ddd8cf; font-size: .92rem; }
+  .perks li { display: flex; align-items: center; gap: 10px; }
+  .perks li::before { content: "◆"; color: var(--tan); font-size: .55rem; }
 
   /* CTA band layered over a soft glow */
   .cta { margin: 0 16px; border-radius: 36px; background:
@@ -209,7 +221,7 @@
   @media (max-width: 900px) {
     .nav-links, .pill { display: none; }
     .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .fleet { grid-template-columns: 1fr; gap: 50px; }
+    .cars { grid-template-columns: 1fr; }
     .tariff-top { grid-template-columns: 1fr; }
     .tariff-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .loyal { flex-wrap: wrap; }
@@ -225,7 +237,9 @@
     .loyal { padding: 28px 22px; gap: 18px; }
     .booking { padding: 24px 18px; border-radius: 22px; }
     section { padding: 80px 0; }
-    .badge { left: 10px; }
+    .car-info { padding: 4px 22px 28px; }
+    .dock { right: 14px; bottom: 14px; padding: 5px; }
+    .dock a:not(.wa) { display: none; }
     .btn { width: 100%; justify-content: center; }
   }
 </style>
@@ -411,26 +425,52 @@
 </section>
 
 <section id="fleet">
-  <div class="wrap fleet">
-    <div class="stack">
-      <div class="photo stage" id="van3d">
-        <span data-i18n="fleet.photo">Chargement du modèle 3D…</span>
-        <span class="hint" data-i18n="fleet.hint">Glissez pour tourner</span>
-      </div>
-      <div class="badge"><b>1–7</b><span data-i18n="fleet.badge">passagers</span></div>
-    </div>
-    <div>
+  <div class="wrap">
+    <div class="center">
       <div class="eyebrow" data-i18n="fleet.eyebrow">Notre flotte</div>
       <h2 data-i18n="fleet.title">Le luxe à chaque kilomètre</h2>
-      <div class="model-name" data-i18n="fleet.model">Mercedes-Benz Classe V · Van de luxe</div>
-      <p class="lead" data-i18n="fleet.lead">Spacieux et raffiné, idéal pour les familles, les groupes et les voyageurs d'affaires. Laissez notre chauffeur s'occuper de tout.</p>
-      <ul class="features">
-        <li><span class="tick">✓</span><span data-i18n="fe.1">Intérieur cuir et éclairage d'ambiance</span></li>
-        <li><span class="tick">✓</span><span data-i18n="fe.2">Chauffeur professionnel en tenue</span></li>
-        <li><span class="tick">✓</span><span data-i18n="fe.3">Rafraîchissements à bord</span></li>
-        <li><span class="tick">✓</span><span data-i18n="fe.4">Tarif fixe confirmé avant le trajet</span></li>
-      </ul>
+      <p class="lead" data-i18n="fleet.lead">Deux véhicules d'exception, entretenus avec soin et conduits par un chauffeur professionnel.</p>
     </div>
+    <div class="cars">
+      <article class="car">
+        <div class="showcase">
+          <div class="platform"></div>
+          <div class="lift-shadow"></div>
+          <img class="car-img" src="images/v-class.webp" alt="Mercedes-Benz Classe V noire" loading="lazy">
+        </div>
+        <div class="car-info">
+          <div class="t-kicker" data-i18n="car.v.k">Van de luxe</div>
+          <h3 data-i18n="car.v.t">Mercedes-Benz Classe V</h3>
+          <p data-i18n="car.v.d">Spacieux et raffiné, idéal pour les familles, les groupes, les transferts aéroport et le Paris Tour.</p>
+          <div class="chips">
+            <span><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.5 2.4 3.5 5.5"/></svg><span data-i18n="car.v.pax">Jusqu'à 7 passagers</span></span>
+            <span><svg class="i" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><span data-i18n="car.v.use">Groupes · Familles · Aéroport</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="car">
+        <div class="showcase">
+          <div class="platform"></div>
+          <div class="lift-shadow"></div>
+          <img class="car-img" src="images/s-class.webp" alt="Mercedes-Benz Classe S noire" loading="lazy">
+        </div>
+        <div class="car-info">
+          <div class="t-kicker" data-i18n="car.s.k">Berline de prestige</div>
+          <h3 data-i18n="car.s.t">Mercedes-Benz Classe S</h3>
+          <p data-i18n="car.s.d">Le summum du confort et de la discrétion, pour vos rendez-vous d'affaires, mariages et services VIP.</p>
+          <div class="chips">
+            <span><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5c2 .6 3.5 2.4 3.5 5.5"/></svg><span data-i18n="car.s.pax">Jusqu'à 3 passagers</span></span>
+            <span><svg class="i" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><span data-i18n="car.s.use">Affaires · VIP · Mariage</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <ul class="perks">
+      <li data-i18n="fe.1">Intérieur cuir et éclairage d'ambiance</li>
+      <li data-i18n="fe.2">Chauffeur professionnel en tenue</li>
+      <li data-i18n="fe.3">Rafraîchissements à bord</li>
+      <li data-i18n="fe.4">Tarif fixe confirmé avant le trajet</li>
+    </ul>
   </div>
 </section>
 
@@ -514,8 +554,11 @@
       "o.bva": "Transfert Paris — Beauvais (150 €)", "o.tour": "Paris Tour (50 €/h)", "o.day": "Excursion hors Paris, tout inclus (850 €/jour)",
       "o.dl": "Disneyland Paris (120 € aller simple)", "o.wed": "Mariage (50 €/h)", "o.vip": "Service VIP (60 €/h)",
       "fleet.eyebrow": "Notre flotte", "fleet.title": "Le luxe à chaque kilomètre",
-      "fleet.lead": "Spacieux et raffiné, idéal pour les familles, les groupes et les voyageurs d'affaires. Laissez notre chauffeur s'occuper de tout.",
-      "fleet.photo": "Chargement du modèle 3D…", "fleet.badge": "passagers", "fleet.hint": "Glissez pour tourner", "fleet.model": "Mercedes-Benz Classe V · Van de luxe",
+      "fleet.lead": "Deux véhicules d'exception, entretenus avec soin et conduits par un chauffeur professionnel.",
+      "car.v.k": "Van de luxe", "car.v.t": "Mercedes-Benz Classe V", "car.v.d": "Spacieux et raffiné, idéal pour les familles, les groupes, les transferts aéroport et le Paris Tour.",
+      "car.v.pax": "Jusqu'à 7 passagers", "car.v.use": "Groupes · Familles · Aéroport",
+      "car.s.k": "Berline de prestige", "car.s.t": "Mercedes-Benz Classe S", "car.s.d": "Le summum du confort et de la discrétion, pour vos rendez-vous d'affaires, mariages et services VIP.",
+      "car.s.pax": "Jusqu'à 3 passagers", "car.s.use": "Affaires · VIP · Mariage",
       "fe.1": "Intérieur cuir et éclairage d'ambiance", "fe.2": "Chauffeur professionnel en tenue",
       "fe.3": "Rafraîchissements à bord", "fe.4": "Tarif fixe confirmé avant le trajet",
       "cta.eyebrow": "Disponible 7j/7", "cta.title": "Prêt à voyager avec style ?",
@@ -550,8 +593,11 @@
       "o.bva": "Transfer Paris — Beauvais (€150)", "o.tour": "Paris Tour (€50/h)", "o.day": "Outside Paris excursion, all inclusive (€850/day)",
       "o.dl": "Disneyland Paris (€120 one way)", "o.wed": "Wedding (€50/h)", "o.vip": "VIP service (€60/h)",
       "fleet.eyebrow": "Our fleet", "fleet.title": "Luxury in every mile",
-      "fleet.lead": "Spacious and refined, ideal for families, groups and business travellers. Let our chauffeur take care of everything.",
-      "fleet.photo": "Loading 3D model…", "fleet.badge": "passengers", "fleet.hint": "Drag to rotate", "fleet.model": "Mercedes-Benz V-Class · Luxury MPV",
+      "fleet.lead": "Two exceptional vehicles, carefully maintained and driven by a professional chauffeur.",
+      "car.v.k": "Luxury MPV", "car.v.t": "Mercedes-Benz V-Class", "car.v.d": "Spacious and refined — ideal for families, groups, airport transfers and the Paris Tour.",
+      "car.v.pax": "Up to 7 passengers", "car.v.use": "Groups · Families · Airport",
+      "car.s.k": "Prestige sedan", "car.s.t": "Mercedes-Benz S-Class", "car.s.d": "The ultimate in comfort and discretion, for business meetings, weddings and VIP service.",
+      "car.s.pax": "Up to 3 passengers", "car.s.use": "Business · VIP · Wedding",
       "fe.1": "Leather interior and ambient lighting", "fe.2": "Professional uniformed chauffeur",
       "fe.3": "Refreshments on board", "fe.4": "Fixed price confirmed before the ride",
       "cta.eyebrow": "Available 7 days a week", "cta.title": "Ready to travel in style?",
@@ -633,19 +679,6 @@
       window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
     }
   });
-</script>
-<script type="importmap">
-  { "imports": { "three": "./vendor/three.module.min.js" } }
-</script>
-<script type="module">
-  import { mountVan } from "./js/van3d.js";
-  const stage = document.getElementById("van3d");
-  try {
-    mountVan(stage);
-    stage.classList.add("ready");
-  } catch (e) {
-    console.warn("3D model unavailable", e);
-  }
 </script>
 </body>
 </html>
