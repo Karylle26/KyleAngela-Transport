@@ -111,7 +111,6 @@
   .face h3 { font-family: var(--serif); font-weight: 500; font-size: 1.7rem; line-height: 1.1; }
   .price { font-family: var(--serif); font-size: 2.2rem; color: var(--tan); line-height: 1.1; margin-top: 8px; }
   .price small { font-family: "Inter", sans-serif; font-size: .78rem; color: var(--muted); margin-left: 4px; }
-  .turn { position: absolute; top: 16px; right: 16px; width: 16px; height: 16px; color: var(--muted); opacity: .6; }
   .rows { list-style: none; width: 100%; max-width: 260px; }
   .rows li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dotted rgba(214,187,138,.3); font-size: .9rem; }
   .rows li:last-child { border-bottom: 0; }
@@ -199,7 +198,6 @@
     .face .big { width: 44px; height: 44px; margin-bottom: 12px; }
     .face h3 { font-size: 1.3rem; }
     .price { font-size: 1.7rem; }
-    .turn { top: 12px; right: 12px; width: 14px; height: 14px; }
     .back p { font-size: .85rem; }
     .stops span { font-size: .72rem; padding: 3px 9px; }
     .loyal { padding: 12px 20px; gap: 12px; }
@@ -332,7 +330,7 @@
     <div class="tiles">
       <div class="tile wide reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-plane"/></svg>
             <h3 data-i18n="t.air">Aéroports</h3>
             <div class="price"><small data-i18n="t.from">dès</small> 80 €</div>
@@ -350,7 +348,7 @@
 
       <div class="tile wide reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-eiffel"/></svg>
             <h3>Paris Tour</h3>
             <div class="price">50 €<small data-i18n="t.h">/ h</small></div>
@@ -367,7 +365,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i f big"><use href="#i-mickey"/></svg>
             <h3>Disneyland</h3>
             <div class="price">120 €</div>
@@ -381,7 +379,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-rings"/></svg>
             <h3 data-i18n="t.wed">Mariage</h3>
             <div class="price">50 €<small data-i18n="t.h">/ h</small></div>
@@ -394,7 +392,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-crown"/></svg>
             <h3>VIP</h3>
             <div class="price">60 €<small data-i18n="t.h">/ h</small></div>
@@ -407,7 +405,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-road"/></svg>
             <h3 data-i18n="t.day">Excursion</h3>
             <div class="price">850 €<small data-i18n="t.d">/ jour</small></div>
