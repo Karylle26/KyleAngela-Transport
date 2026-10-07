@@ -111,7 +111,6 @@
   .face h3 { font-family: var(--serif); font-weight: 500; font-size: 1.7rem; line-height: 1.1; }
   .price { font-family: var(--serif); font-size: 2.2rem; color: var(--tan); line-height: 1.1; margin-top: 8px; }
   .price small { font-family: "Inter", sans-serif; font-size: .78rem; color: var(--muted); margin-left: 4px; }
-  .turn { position: absolute; top: 16px; right: 16px; width: 16px; height: 16px; color: var(--muted); opacity: .6; }
   .rows { list-style: none; width: 100%; max-width: 260px; }
   .rows li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dotted rgba(214,187,138,.3); font-size: .9rem; }
   .rows li:last-child { border-bottom: 0; }
@@ -199,7 +198,6 @@
     .face .big { width: 44px; height: 44px; margin-bottom: 12px; }
     .face h3 { font-size: 1.3rem; }
     .price { font-size: 1.7rem; }
-    .turn { top: 12px; right: 12px; width: 14px; height: 14px; }
     .back p { font-size: .85rem; }
     .stops span { font-size: .72rem; padding: 3px 9px; }
     .loyal { padding: 12px 20px; gap: 12px; }
@@ -300,7 +298,7 @@
             <option data-i18n="o.cdgout">CDG — Hors Paris · 120 €</option>
             <option data-i18n="o.orly">Orly — Paris · 100 €</option>
             <option data-i18n="o.bva">Paris — Beauvais · 150 €</option>
-            <option>Paris Tour · 50 €/h</option>
+            <option data-i18n="o.tour">Paris Tour · 8 h · 400 €</option>
             <option data-i18n="o.day">Excursion hors Paris · 850 €/jour</option>
             <option data-i18n="o.dl">Disneyland Paris · 120 €</option>
             <option data-i18n="o.wed">Mariage · 50 €/h</option>
@@ -332,7 +330,7 @@
     <div class="tiles">
       <div class="tile wide reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-plane"/></svg>
             <h3 data-i18n="t.air">Aéroports</h3>
             <div class="price"><small data-i18n="t.from">dès</small> 80 €</div>
@@ -350,24 +348,25 @@
 
       <div class="tile wide reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-eiffel"/></svg>
             <h3>Paris Tour</h3>
-            <div class="price">50 €<small data-i18n="t.h">/ h</small></div>
+            <div class="price">400 €<small>/ 8 h</small></div>
           </div>
           <div class="face back">
             <div class="stops">
               <span data-i18n="t.eiffel">Tour Eiffel</span><span>Arc de Triomphe</span><span>Pont Alexandre III</span>
               <span>Louvre</span><span>Sacré-Cœur</span><span>Rue de l'Université</span>
             </div>
-            <div class="meta"><svg class="i"><use href="#i-people"/></svg>max 7</div>
+            <div class="meta"><svg class="i"><use href="#i-hour"/></svg><span data-i18n="t.tour.min">min. 8 h · + 50 € / h sup.</span></div>
+            <div class="meta" style="margin-top:6px"><svg class="i"><use href="#i-people"/></svg>max 7</div>
           </div>
         </div>
       </div>
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i f big"><use href="#i-mickey"/></svg>
             <h3>Disneyland</h3>
             <div class="price">120 €</div>
@@ -381,7 +380,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-rings"/></svg>
             <h3 data-i18n="t.wed">Mariage</h3>
             <div class="price">50 €<small data-i18n="t.h">/ h</small></div>
@@ -394,7 +393,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-crown"/></svg>
             <h3>VIP</h3>
             <div class="price">60 €<small data-i18n="t.h">/ h</small></div>
@@ -407,7 +406,7 @@
 
       <div class="tile reveal" tabindex="0">
         <div class="tile-in">
-          <div class="face"><svg class="turn i"><use href="#i-turn"/></svg>
+          <div class="face">
             <svg class="i big"><use href="#i-road"/></svg>
             <h3 data-i18n="t.day">Excursion</h3>
             <div class="price">850 €<small data-i18n="t.d">/ jour</small></div>
@@ -514,7 +513,7 @@
       "o.day": "Excursion hors Paris · 850 €/jour", "o.dl": "Disneyland Paris · 120 €", "o.wed": "Mariage · 50 €/h", "o.vip": "VIP · 60 €/h",
       "services.title": "Services",
       "t.air": "Aéroports", "t.from": "dès", "t.out": "Hors Paris", "t.h": "/ h", "t.d": "/ jour",
-      "t.eiffel": "Tour Eiffel", "t.dl": "Paris → Disneyland Paris", "t.oneway": "Aller simple",
+      "t.eiffel": "Tour Eiffel", "t.tour.min": "min. 8 h · + 50 € / h sup.", "o.tour": "Paris Tour · 8 h · 400 €", "t.dl": "Paris → Disneyland Paris", "t.oneway": "Aller simple",
       "t.wed": "Mariage", "t.wed.d": "Une arrivée élégante pour le plus beau jour de votre vie.",
       "t.vip.d": "Votre chauffeur privé, à votre entière disposition.",
       "t.day": "Excursion", "t.day.d": "Hors Paris · tout compris · journée complète.",
@@ -532,7 +531,7 @@
       "o.day": "Outside Paris excursion · €850/day", "o.dl": "Disneyland Paris · €120", "o.wed": "Wedding · €50/h", "o.vip": "VIP · €60/h",
       "services.title": "Services",
       "t.air": "Airports", "t.from": "from", "t.out": "Outside Paris", "t.h": "/ h", "t.d": "/ day",
-      "t.eiffel": "Eiffel Tower", "t.dl": "Paris → Disneyland Paris", "t.oneway": "One way",
+      "t.eiffel": "Eiffel Tower", "t.tour.min": "min. 8 h · + €50 per extra hour", "o.tour": "Paris Tour · 8 h · €400", "t.dl": "Paris → Disneyland Paris", "t.oneway": "One way",
       "t.wed": "Wedding", "t.wed.d": "An elegant arrival for the most beautiful day of your life.",
       "t.vip.d": "Your private chauffeur, entirely at your disposal.",
       "t.day": "Excursion", "t.day.d": "Outside Paris · all inclusive · full day.",
